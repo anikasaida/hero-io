@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import UseProducts from "../Hook/UseProducts";
-import AppsCard from "../AppsCard";
+import AppsCard from "./AppsCard";
 
 const Apps = () => {
   const { products } = UseProducts();

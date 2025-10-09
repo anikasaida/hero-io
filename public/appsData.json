@@ -268,5 +268,95 @@
       { "name": "4 star", "count": 2100 },
       { "name": "5 star", "count": 5230 }
     ]
+  },
+  {
+    "id": 16,
+    "image": "../src/assets/16.jpeg",
+    "title": "MindSpace Notes",
+    "companyName": "BrainySoft Inc.",
+    "description": "MindSpace Notes helps you organize your ideas, tasks, and projects with AI-powered note-taking and reminders. Collaborate and share notes across devices seamlessly.",
+    "size": 55,
+    "reviews": "5.8k",
+    "ratingAvg": 4.5,
+    "downloads": "620k",
+    "ratings": [
+      { "name": "1 star", "count": 150 },
+      { "name": "2 star", "count": 250 },
+      { "name": "3 star", "count": 550 },
+      { "name": "4 star", "count": 1800 },
+      { "name": "5 star", "count": 3000 }
+    ]
+  },
+  {
+    "id": 17,
+    "image": "../src/assets/17.jpg",
+    "title": "QuickFit Coach",
+    "companyName": "HealthWave Labs",
+    "description": "QuickFit Coach provides AI-guided workouts, nutrition plans, and progress tracking to help you achieve fitness goals quickly and effectively.",
+    "size": 70,
+    "reviews": "7.1k",
+    "ratingAvg": 4.6,
+    "downloads": "780k",
+    "ratings": [
+      { "name": "1 star", "count": 180 },
+      { "name": "2 star", "count": 300 },
+      { "name": "3 star", "count": 650 },
+      { "name": "4 star", "count": 2100 },
+      { "name": "5 star", "count": 3650 }
+    ]
+  },
+  {
+    "id": 18,
+    "image": "../src/assets/18.jpg",
+    "title": "Eventify Planner",
+    "companyName": "PlanIt Co.",
+    "description": "Eventify Planner is an event management app that helps you schedule, track, and manage events, invitations, and RSVPs efficiently.",
+    "size": 60,
+    "reviews": "4.9k",
+    "ratingAvg": 4.4,
+    "downloads": "540k",
+    "ratings": [
+      { "name": "1 star", "count": 120 },
+      { "name": "2 star", "count": 200 },
+      { "name": "3 star", "count": 450 },
+      { "name": "4 star", "count": 1500 },
+      { "name": "5 star", "count": 2750 }
+    ]
+  },
+  {
+    "id": 19,
+    "image": "../src/assets/19.jpg",
+    "title": "CryptoTracker Pro",
+    "companyName": "FinTech Solutions",
+    "description": "CryptoTracker Pro lets you monitor cryptocurrency prices, trends, and portfolio performance with real-time alerts and AI-driven insights.",
+    "size": 80,
+    "reviews": "9.3k",
+    "ratingAvg": 4.7,
+    "downloads": "1.1M",
+    "ratings": [
+      { "name": "1 star", "count": 210 },
+      { "name": "2 star", "count": 380 },
+      { "name": "3 star", "count": 800 },
+      { "name": "4 star", "count": 2400 },
+      { "name": "5 star", "count": 5400 }
+    ]
+  },
+  {
+    "id": 20,
+    "image": "../src/assets/20.jpg",
+    "title": "PhotoLab Pro",
+    "companyName": "CreativePixels",
+    "description": "PhotoLab Pro is a powerful photo editor with AI filters, collage tools, and advanced adjustments to make your photos look stunning in seconds.",
+    "size": 110,
+    "reviews": "11.4k",
+    "ratingAvg": 4.8,
+    "downloads": "1.5M",
+    "ratings": [
+      { "name": "1 star", "count": 220 },
+      { "name": "2 star", "count": 350 },
+      { "name": "3 star", "count": 700 },
+      { "name": "4 star", "count": 2500 },
+      { "name": "5 star", "count": 8100 }
+    ]
   }
 ]
