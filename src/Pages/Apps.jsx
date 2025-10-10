@@ -1,19 +1,43 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import UseProducts from "../Hook/UseProducts";
 import AppsCard from "./AppsCard";
+import appErrorImg from "../assets/App-Error.png";
+import { Link } from "react-router";
+import LoadingSkeleton from "./LoadingSkeleton";
 
 const Apps = () => {
-  const { products } = UseProducts();
+  const { products, loading } = UseProducts();
 
   //   Search Field
   const [search, setSearch] = useState("");
-  const term = search.trim().toLocaleLowerCase();
+
+  const [loadingSearching, setLoadingSearching] = useState(false);
+
+  const term = search.trim().toLowerCase();
   const searchProducts = term
-    ? products.filter((p) => p.title.toLocaleLowerCase().includes(term))
+    ? products.filter((p) => p.title.toLowerCase().includes(term))
     : products;
 
+  useEffect(() => {
+    if (term) {
+      setLoadingSearching(true);
+      const timeout = setTimeout(() => {
+        setLoadingSearching(false);
+      }, 500);
+      return () => clearTimeout(timeout);
+    } else {
+      setLoadingSearching(false);
+    }
+  }, [term]);
+
   return (
-    <div>
+    <div className="max-w-screen-xl mx-auto w-full px-4 md:px-8 lg-px-12 py-4 md:py-8 lg-py-12">
+      <div className="text-center py-8 space-y-3">
+        <h1 className="text-3xl font-bold">Our All Applications</h1>
+        <p className="text-[#627382]">
+          Explore All Apps on the Market developed by us. We code for Millions
+        </p>
+      </div>
       <div className="flex justify-between items-center">
         <h1 className="font-semibold">
           ( {searchProducts.length} ) Apps Found
@@ -44,15 +68,24 @@ const Apps = () => {
           />
         </label>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5 py-5 ">
-        {term && searchProducts.length === 0 ? (
-          <h1 className="text-center text-xl font-semibold col-span-full">
-            Not Found 😔
-          </h1>
+      <div className="mt-5">
+        {loading || loadingSearching ? (
+          <LoadingSkeleton count={term ? searchProducts.length || 15 : 15} />
+        ) : term && searchProducts.length === 0 ? (
+          <div className="text-center py-8 space-y-4">
+            <img src={appErrorImg} alt="" className="mx-auto h-[300px]" />
+            <h1 className="text-3xl font-bold">Oops, page not found!</h1>
+            <p>The page you are looking for is not available.</p>
+            <Link to="/">
+              <button className="btn bg-blue-600">Go Back!</button>
+            </Link>
+          </div>
         ) : (
-          searchProducts.map((product) => (
-            <AppsCard key={product.id} product={product} />
-          ))
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5 py-5 ">
+            {searchProducts.map((product) => (
+              <AppsCard key={product.id} product={product} />
+            ))}
+          </div>
         )}
       </div>
     </div>

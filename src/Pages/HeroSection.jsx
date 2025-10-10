@@ -32,7 +32,7 @@ const HeroSection = () => {
       <div>
         <img className="w-[500px] mx-auto" src={heroImg} alt="" />
 
-        <div className="shadow bg-gradient-to-br from-[#632EE3] to-[#9F62F2] p-8">
+        <div className="shadow bg-gradient-to-br from-[#632EE3] to-[#9F62F2] p-8 ">
           <h1 className="text-4xl text-white font-bold">
             Trusted by Millions, Built for You
           </h1>

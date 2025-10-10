@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 const UseProducts = () => {
   const [products, setProducts] = useState([]);
@@ -8,9 +8,9 @@ const UseProducts = () => {
 
   useEffect(() => {
     setLoading(true);
-    axios("../appsData.json")
-      .then((data) => setProducts(data.data))
-      .catch((error) => setError(error))
+    axios("/appsData.json")
+      .then((res) => setProducts(res.data))
+      .catch((err) => setError(err))
       .finally(() => setLoading(false));
   }, []);
 
