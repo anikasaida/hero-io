@@ -5,10 +5,10 @@ import heroImg from "../assets/hero.png";
 
 const HeroSection = () => {
   return (
-    <div className="text-center space-y-4">
+    <div className="text-center space-y-4 mt-6">
       <div className="space-y-4">
         <h1 className="text-4xl font-bold">
-          We Build <br /> <span className="text-fuchsia-500">Productive</span>{" "}
+          We Build <br /> <span className="text-[#9F62F2]">Productive</span>{" "}
           Apps
         </h1>
         <p>
