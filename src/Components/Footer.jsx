@@ -35,7 +35,7 @@ const Footer = () => {
       </footer>
 
       <footer className="footer sm:footer-horizontal bg-neutral text-neutral-content items-center p-4 px-10">
-        <aside className="grid-flow-col items-center">
+        <aside className="grid-flow-col items-center justify-center text-center">
           <div className="text-xl font-bold flex justify-center items-center gap-2">
             <span>
               <Link to="/">
@@ -43,9 +43,9 @@ const Footer = () => {
               </Link>
             </span>
           </div>
-          <p>
+          <p className="justify-center">
             Copyright © {new Date().getFullYear()} - All right reserved by{" "}
-            <span className="font-semibold">Anika Saida</span>
+            <span className="font-semibold ">Anika Saida</span>
           </p>
         </aside>
         <nav className="grid-flow-col gap-4 md:place-self-center md:justify-self-end">

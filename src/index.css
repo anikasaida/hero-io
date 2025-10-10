@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
+
 :root {
   background-color: #f5f5f5;
 }
@@ -8,4 +9,10 @@
 a.active {
   color: #9f62f2;
   text-decoration: underline;
+}
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }

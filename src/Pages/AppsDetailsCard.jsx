@@ -120,7 +120,7 @@ const AppsDetailsCard = () => {
             <button
               onClick={isInstalled ? handleUninstall : handleInstall}
               disabled={isInstalled}
-              className={`btn mt-6 text-white ${
+              className={`btn mt-6 text-white {
                 isInstalled ? "bg-gray-500" : "bg-green-500"
               }`}
             >
