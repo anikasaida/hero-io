@@ -32,7 +32,7 @@ const HeroSection = () => {
       <div>
         <img className="w-[500px] mx-auto" src={heroImg} alt="" />
 
-        <div className="w-screen relative left-1/2 right-1/2 -mx-[50vw] bg-gradient-to-br from-[#632EE3] to-[#9F62F2] shadow p-8 mt-8 ">
+        <div className="w-screen relative left-1/2 right-1/2 -mx-[50vw] bg-gradient-to-br from-[#632EE3] to-[#9F62F2] shadow p-8 ">
           <h1 className="text-4xl text-white font-bold">
             Trusted by Millions, Built for You
           </h1>
