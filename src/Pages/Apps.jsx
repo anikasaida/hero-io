@@ -2,15 +2,16 @@ import React, { useEffect, useState } from "react";
 import UseProducts from "../Hook/UseProducts";
 import AppsCard from "./AppsCard";
 import appErrorImg from "../assets/App-Error.png";
-import { Link } from "react-router";
+import { Link, useNavigation } from "react-router";
 import LoadingSkeleton from "./LoadingSkeleton";
+import LoadingText from "./LoadingText"; // তোমার custom loading component
 
 const Apps = () => {
   const { products, loading } = UseProducts();
+  const navigation = useNavigation(); // route change loading detect করবে
 
-  //   Search Field
+  // Search Field
   const [search, setSearch] = useState("");
-
   const [loadingSearching, setLoadingSearching] = useState(false);
 
   const term = search.trim().toLowerCase();
@@ -30,14 +31,23 @@ const Apps = () => {
     }
   }, [term]);
 
+  // route loading
+  const isRouteLoading = navigation.state === "loading";
+
+  // final loading condition
+  const isLoading = loading || loadingSearching || isRouteLoading;
+
   return (
-    <div className="max-w-screen-xl mx-auto w-full px-4 md:px-8 lg-px-12 py-4 md:py-8 lg-py-12">
+    <div className="max-w-screen-xl mx-auto w-full px-4 md:px-8 lg:px-12 py-4 md:py-8 lg:py-12">
+      {/* Top Section */}
       <div className="text-center py-8 space-y-3">
         <h1 className="text-3xl font-bold">Our All Applications</h1>
         <p className="text-[#627382]">
           Explore All Apps on the Market developed by us. We code for Millions
         </p>
       </div>
+
+      {/* Search Section */}
       <div className="flex justify-between items-center">
         <h1 className="font-semibold">
           ( {searchProducts.length} ) Apps Found
@@ -68,20 +78,25 @@ const Apps = () => {
           />
         </label>
       </div>
+
+      {/* Main Content */}
       <div className="mt-5">
-        {loading || loadingSearching ? (
-          <LoadingSkeleton count={term ? searchProducts.length || 15 : 15} />
+        {isLoading ? (
+          // Loading animation (custom component)
+          <LoadingText />
         ) : term && searchProducts.length === 0 ? (
+          // Not found section
           <div className="text-center py-8 space-y-4">
             <img src={appErrorImg} alt="" className="mx-auto h-[300px]" />
-            <h1 className="text-3xl font-bold">Oops, page not found!</h1>
+            <h1 className="text-3xl font-bold">No Apps found!</h1>
             <p>The page you are looking for is not available.</p>
             <Link to="/">
               <button className="btn bg-blue-600">Go Back!</button>
             </Link>
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5 py-5 ">
+          // All apps grid
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5 py-5">
             {searchProducts.map((product) => (
               <AppsCard key={product.id} product={product} />
             ))}

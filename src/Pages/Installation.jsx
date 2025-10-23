@@ -5,8 +5,8 @@ import "react-toastify/dist/ReactToastify.css";
 
 const Installation = () => {
   const [installed, setInstalled] = useState([]);
-  //   console.log(installed);
   const [sortInstall, setSortInstall] = useState("none");
+
   useEffect(() => {
     const savedApp = JSON.parse(localStorage.getItem("install"));
     if (savedApp) {
@@ -14,18 +14,12 @@ const Installation = () => {
     }
   }, []);
 
-  //   // Sort Handle
   const getNumber = (num) => {
     if (!num) return 0;
-
     const str = num.toString().toLowerCase();
-    if (str.includes("k")) {
-      return parseFloat(str) * 1000;
-    } else if (str.includes("m")) {
-      return parseFloat(str) * 1000000;
-    } else {
-      return parseFloat(str);
-    }
+    if (str.includes("k")) return parseFloat(str) * 1000;
+    if (str.includes("m")) return parseFloat(str) * 1000000;
+    return parseFloat(str);
   };
 
   const sortedItem = (() => {
@@ -42,7 +36,6 @@ const Installation = () => {
     }
   })();
 
-  //   // handleRemove .
   const handleUninstall = (id) => {
     toast(
       <div role="alert" className="flex items-center text-red-500 gap-2">
@@ -68,15 +61,25 @@ const Installation = () => {
     setInstalled(updateList);
     localStorage.setItem("install", JSON.stringify(updateList));
   };
+
   return (
-    <div>
+    <div className="max-w-screen-xl mx-auto w-full px-4 md:px-8 lg:px-12 py-4 md:py-8 lg:py-12">
+      {/* Page Header */}
+      <div className="text-center py-8 space-y-3">
+        <h1 className="text-3xl font-bold">Your Installed Apps</h1>
+        <p className="text-[#627382]">
+          Explore All Trending Apps on the Market developed by us
+        </p>
+      </div>
+
+      {/* Sort & Count */}
       <div className="flex justify-between items-center py-8">
         <h1 className="text-xl font-bold">{sortedItem.length} Apps Found</h1>
         <label className="form-control w-[150px] max-w-xs">
           <select
             value={sortInstall}
             onChange={(e) => setSortInstall(e.target.value)}
-            className="select select-bordered "
+            className="select select-bordered"
           >
             <option value="none">Sort By Size</option>
             <option value="install-asc">Low-&gt;High</option>
@@ -84,6 +87,8 @@ const Installation = () => {
           </select>
         </label>
       </div>
+
+      {/* Installed Apps List */}
       <div>
         {sortedItem.map((product) => (
           <InstallationCard
@@ -93,6 +98,7 @@ const Installation = () => {
           />
         ))}
       </div>
+
       <ToastContainer />
     </div>
   );
