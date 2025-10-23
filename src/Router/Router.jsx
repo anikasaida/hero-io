@@ -1,9 +1,8 @@
 import React, { lazy, Suspense } from "react";
 import { createBrowserRouter } from "react-router";
 import MainLayout from "../Layout/MainLayout";
-import LoadingText from "../Pages/LoadingText"; // ensure path ঠিক আছে
+import LoadingText from "../Pages/LoadingText"; 
 
-// Lazy load pages
 const Home = lazy(() => import("../Pages/Home"));
 const Apps = lazy(() => import("../Pages/Apps"));
 const AppsDetailsCard = lazy(() => import("../Pages/AppsDetailsCard"));

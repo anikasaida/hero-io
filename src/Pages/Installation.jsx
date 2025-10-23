@@ -64,7 +64,7 @@ const Installation = () => {
 
   return (
     <div className="max-w-screen-xl mx-auto w-full px-4 md:px-8 lg:px-12 py-4 md:py-8 lg:py-12">
-      {/* Page Header */}
+    
       <div className="text-center py-8 space-y-3">
         <h1 className="text-3xl font-bold">Your Installed Apps</h1>
         <p className="text-[#627382]">

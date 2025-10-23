@@ -4,11 +4,11 @@ import AppsCard from "./AppsCard";
 import appErrorImg from "../assets/App-Error.png";
 import { Link, useNavigation } from "react-router";
 import LoadingSkeleton from "./LoadingSkeleton";
-import LoadingText from "./LoadingText"; // তোমার custom loading component
+import LoadingText from "./LoadingText";
 
 const Apps = () => {
   const { products, loading } = UseProducts();
-  const navigation = useNavigation(); // route change loading detect করবে
+  const navigation = useNavigation(); 
 
   // Search Field
   const [search, setSearch] = useState("");
@@ -31,15 +31,15 @@ const Apps = () => {
     }
   }, [term]);
 
-  // route loading
+ 
   const isRouteLoading = navigation.state === "loading";
 
-  // final loading condition
+  
   const isLoading = loading || loadingSearching || isRouteLoading;
 
   return (
     <div className="max-w-screen-xl mx-auto w-full px-4 md:px-8 lg:px-12 py-4 md:py-8 lg:py-12">
-      {/* Top Section */}
+     
       <div className="text-center py-8 space-y-3">
         <h1 className="text-3xl font-bold">Our All Applications</h1>
         <p className="text-[#627382]">
@@ -82,10 +82,10 @@ const Apps = () => {
       {/* Main Content */}
       <div className="mt-5">
         {isLoading ? (
-          // Loading animation (custom component)
+        
           <LoadingText />
         ) : term && searchProducts.length === 0 ? (
-          // Not found section
+        
           <div className="text-center py-8 space-y-4">
             <img src={appErrorImg} alt="" className="mx-auto h-[300px]" />
             <h1 className="text-3xl font-bold">No Apps found!</h1>
@@ -95,7 +95,7 @@ const Apps = () => {
             </Link>
           </div>
         ) : (
-          // All apps grid
+        
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5 py-5">
             {searchProducts.map((product) => (
               <AppsCard key={product.id} product={product} />

@@ -41,7 +41,7 @@ const InstallationCard = ({ product, handleUninstall }) => {
           onClick={() => handleUninstall(id)}
           className="btn bg-green-500 text-white"
         >
-          {/* <ToastContainer /> */}
+         
           Uninstall
         </button>
       </div>

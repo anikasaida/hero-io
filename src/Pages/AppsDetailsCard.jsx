@@ -20,7 +20,6 @@ const AppsDetailsCard = () => {
 
   const [isInstalled, setIsInstalled] = useState(false);
 
-  // Check if app is installed
   useEffect(() => {
     const product = products.find((p) => p.id === parsIntId);
     if (!product) return;
@@ -29,13 +28,12 @@ const AppsDetailsCard = () => {
     setIsInstalled(installList.some((p) => p.id === product.id));
   }, [products, parsIntId]);
 
-  // Show loading skeleton or text while fetching products
+
   if (loading) return <p className="text-center py-20 text-xl">Loading...</p>;
 
-  // Find the product
+ 
   const product = products.find((p) => p.id === parsIntId);
 
-  // Handle invalid ID (Not Found)
   if (!product) {
     return (
       <div className="text-center py-20 space-y-4">
@@ -67,7 +65,7 @@ const AppsDetailsCard = () => {
     description,
   } = product;
 
-  // Install app
+ 
   const handleInstall = () => {
     const existingList = JSON.parse(localStorage.getItem("install")) || [];
     if (existingList.some((p) => p.id === product.id)) {
@@ -79,7 +77,7 @@ const AppsDetailsCard = () => {
     toast.success("App Installed!");
   };
 
-  // Uninstall app
+  
   const handleUninstall = () => {
     const existingList = JSON.parse(localStorage.getItem("install")) || [];
     const updateList = existingList.filter((p) => p.id !== product.id);
@@ -90,7 +88,7 @@ const AppsDetailsCard = () => {
 
   return (
     <div className="space-y-6">
-      {/* App Info */}
+     
       <div className="bg-base-200 shadow p-5 flex flex-col md:flex-row gap-12">
         <img src={image} className="max-w-sm rounded-lg shadow-2xl h-[300px]" />
         <div>
